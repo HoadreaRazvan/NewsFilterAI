@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\3_FACULTATE\Regasirea_Informatiei\RegasireaInformatiei\porter2-stemmer-master\Porter2Stemmer.UnitTest\Porter2Stemmer.UnitTest.csproj" />
+    <ProjectReference Include="..\..\..\..\..\..\3_FACULTATE\Regasirea_Informatiei\RegasireaInformatiei\porter2-stemmer-master\Porter2Stemmer\Porter2Stemmer.csproj" />
+  </ItemGroup>
+
+</Project>
