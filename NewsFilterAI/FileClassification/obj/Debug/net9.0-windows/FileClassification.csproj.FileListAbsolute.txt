@@ -22,3 +22,4 @@ D:\1_PROGRAMMING\C#\2_PROJECTS\NewsFilterAI\NewsFilterAI\FileClassification\obj\
 D:\1_PROGRAMMING\C#\2_PROJECTS\NewsFilterAI\NewsFilterAI\FileClassification\obj\Debug\net9.0-windows\refint\FileClassification.dll
 D:\1_PROGRAMMING\C#\2_PROJECTS\NewsFilterAI\NewsFilterAI\FileClassification\obj\Debug\net9.0-windows\FileClassification.pdb
 D:\1_PROGRAMMING\C#\2_PROJECTS\NewsFilterAI\NewsFilterAI\FileClassification\obj\Debug\net9.0-windows\ref\FileClassification.dll
+D:\1_PROGRAMMING\C#\2_PROJECTS\NewsFilterAI\NewsFilterAI\FileClassification\obj\Debug\net9.0-windows\FileClassification.sourcelink.json

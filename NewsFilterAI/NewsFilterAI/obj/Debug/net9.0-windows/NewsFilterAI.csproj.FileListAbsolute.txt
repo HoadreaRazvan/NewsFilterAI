@@ -108,3 +108,4 @@ D:\1_PROGRAMMING\C#\2_PROJECTS\NewsFilterAI\NewsFilterAI\NewsFilterAI\bin\Debug\
 D:\1_PROGRAMMING\C#\2_PROJECTS\NewsFilterAI\NewsFilterAI\NewsFilterAI\bin\Debug\net9.0-windows\Porter2Stemmer.UnitTest.pdb
 D:\1_PROGRAMMING\C#\2_PROJECTS\NewsFilterAI\NewsFilterAI\NewsFilterAI\obj\Debug\net9.0-windows\NewsFilterAI.csproj.AssemblyReference.cache
 D:\1_PROGRAMMING\C#\2_PROJECTS\NewsFilterAI\NewsFilterAI\NewsFilterAI\obj\Debug\net9.0-windows\NewsFilt.FD487B06.Up2Date
+D:\1_PROGRAMMING\C#\2_PROJECTS\NewsFilterAI\NewsFilterAI\NewsFilterAI\obj\Debug\net9.0-windows\NewsFilterAI.sourcelink.json

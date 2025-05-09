@@ -7,12 +7,12 @@ namespace NewsFilterAI;
 
 public partial class App : Application
 {
-    private FileReader fileReader;
+    private ProcessReuters processReuters;
 
     public App()
     {
-        this.fileReader=new FileReader();
-        this.fileReader.processReuters();
+        this.processReuters = new ProcessReuters();
+        this.processReuters.processReuters();
 
         MessageBox.Show("Exit");
     }
