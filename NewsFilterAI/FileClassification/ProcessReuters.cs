@@ -14,8 +14,6 @@ namespace FileClassification
         public Dictionary<string, int> globalWords;
         public Dictionary<int, int> documentWords;
         public int globalIndex;
-        public Dictionary<string, List<string>> topics;
-        public Dictionary<string, int> topicsSet;
 
         public FileReader fileReader;
 
@@ -24,8 +22,7 @@ namespace FileClassification
             this.fileReader = new FileReader();
             this.globalWords = new Dictionary<string, int>();
             this.documentWords = new Dictionary<int, int>();
-            this.topicsSet = new Dictionary<string, int>();
-            this.topics = new Dictionary<string, List<string>>();
+
             this.stopWords = this.getStopWords();
             this.globalIndex = 0;
         }
@@ -38,28 +35,10 @@ namespace FileClassification
             foreach (string filePath in filesPath)
             {
                 string documentName = (filePath.Split('\\')[filePath.Split('\\').Length - 1]).Split('.')[0];
-                List<string> topics = this.fileReader.getTopicsFromFile(filePath);
-                this.topics.Add(documentName, topics);
-
-                foreach (string topic in topics)
-                    if (!this.topicsSet.ContainsKey(topic))
-                        this.topicsSet.Add(topic, 0);
-                    else
-                        this.topicsSet[topic]++;
-
-
                 this.processFile(this.fileReader.getTitleFromFile(filePath), this.fileReader.getTextFromFile(filePath));
-                this.fileReader.addDocumentToFile(filePath,this.documentWords,this.fileReader.filePath);
+                this.fileReader.addDocumentToFile(filePath,this.documentWords,this.fileReader.filePath, this.fileReader.getTopicsFromFile(filePath));
                 this.documentWords = new Dictionary<int, int>();
-
-            }
-
-            using (StreamWriter writer = new StreamWriter(this.fileReader.filePath + "\\Files\\GlobalWords.txt"))
-            {
-                foreach (var word in this.globalWords)
-                {
-                    writer.WriteLine($"{word.Key} {word.Value}");
-                }
+                this.fileReader.addGlobalWordsToFile(this.globalWords);
             }
         }
 
@@ -113,6 +92,8 @@ namespace FileClassification
                 if (word.Contains(c))
                     return String.Empty;
 
+            if (word.Any(c => trimChars.Contains(c)))
+                return string.Empty;    
 
             word = new EnglishPorter2Stemmer().Stem(word).Value;
             return word;
@@ -163,28 +144,5 @@ namespace FileClassification
             return words;
         }
 
-
-        public double logBase2(double n)
-        {
-            return Math.Log(n) / Math.Log(2);
-        }
-
-
-        public double entropyRange()
-        {
-            return logBase2(this.topicsSet.Count);
-        }
-
-        public double entropy()
-        {
-            int numberOfDocuments = Directory.GetFiles(this.fileReader.filePath + "\\Reuters\\Reuters_7083", "*.XML").Length;
-            double entropy = 0, number;
-            foreach (var topic in this.topicsSet)
-            {
-                number = (double)topic.Value / numberOfDocuments;
-                entropy -= number * this.logBase2(number);
-            }
-            return entropy;
-        }
     }
 }

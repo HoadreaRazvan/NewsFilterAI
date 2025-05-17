@@ -8,12 +8,16 @@ namespace NewsFilterAI;
 public partial class App : Application
 {
     private ProcessReuters processReuters;
+    private Entropy entropy;
 
     public App()
     {
         this.processReuters = new ProcessReuters();
-        this.processReuters.processReuters();
+        this.entropy = new Entropy();
 
+        //this.processReuters.processReuters();
+       
+            
         MessageBox.Show("Exit");
     }
 

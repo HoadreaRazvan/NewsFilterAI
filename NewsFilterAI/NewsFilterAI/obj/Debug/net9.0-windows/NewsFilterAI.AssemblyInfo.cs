@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NewsFilterAI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ba0e46dbeb5830ecd709ef0f495822a070f3bce")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ee32c3608198f9b18b5b35bdd199c1b7fb17d86c")]
 [assembly: System.Reflection.AssemblyProductAttribute("NewsFilterAI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NewsFilterAI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

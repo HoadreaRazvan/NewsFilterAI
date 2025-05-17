@@ -20,18 +20,25 @@ namespace FileClassification
         }
 
 
-        public void addDocumentToFile(string filePath, Dictionary<int, int> documentWords,string path)
+        public void addDocumentToFile(string filePath, Dictionary<int, int> documentWords,string path,string topic)
         {
             using (StreamWriter writer = new StreamWriter(path + "\\Files\\DocumentsWords.txt", true))
             {
-                writer.Write((filePath.Split('\\')[filePath.Split('\\').Length - 1]).Split('.')[0] + " ");
+                writer.Write((filePath.Split('\\')[filePath.Split('\\').Length - 1]).Split('.')[0] + " "+ topic+" ");
 
                 foreach (var word in documentWords)
                 {
                     writer.Write($"{word.Key}:{word.Value} ");
                 }
                 writer.WriteLine();
-                writer.WriteLine();
+            }
+        }
+
+        public void addDocumentToEntropyWords(string key,string value)
+        {
+            using (StreamWriter writer = new StreamWriter(this.filePath + "\\Files\\EntropyWords.txt",true))
+            {
+                writer.WriteLine(key+" "+value);
             }
         }
 
@@ -57,7 +64,7 @@ namespace FileClassification
             return Regex.Replace(titleElement.Value, @"\s+", " ");
         }
 
-        public List<string> getTopicsFromFile(string filepath)
+        public string getTopicsFromFile(string filepath)
         {
             XDocument doc = XDocument.Load(filepath);
 
@@ -65,14 +72,25 @@ namespace FileClassification
                 .FirstOrDefault(el => (string)el.Attribute("class") == "bip:topics:1.0");
 
             if (codesElement == null)
-                return new List<string>();
+                return String.Empty;
 
             List<string> codeList = codesElement.Elements("code")
                 .Select(el => el.Attribute("code")?.Value)
                 .Where(val => val != null)
                 .ToList();
 
-            return codeList;
+            return codeList[0];
+        }
+
+        public void addGlobalWordsToFile(Dictionary<string, int> globalWords)
+        {
+            using (StreamWriter writer = new StreamWriter(this.filePath + "\\Files\\GlobalWords.txt"))
+            {
+                foreach (var word in globalWords)
+                {
+                    writer.WriteLine($"{word.Key} {word.Value}");
+                }
+            }
         }
 
     }
